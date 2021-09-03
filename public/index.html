@@ -54,6 +54,32 @@
                   <p> LinkedIn: <a href="https://www.linkedin.com/in/richardhenrickspiedpiper" class="linkcolor">View Profile</a> </p>
                 </div>
               </div>
+
+                <!--The following form is not functional. It is not connected to a database to store new books. 
+                The above table will not be updated, even when users fill out the form and submits it.
+                The form was designed through using Bootstap's templates
+                Source: https://getbootstrap.com/docs/5.1/forms/overview/-->
+              <form class="row g-3">
+                <div class="col-8">
+                <label for="email" class="form-label">Update Email</label>
+                <input type="text" class="form-control" id="email">
+                </div>
+
+                <div class="col-8">
+                <label for="LinkedIn" class="form-label">Update LinkedIn</label>
+                <input type="text" class="form-control" id="LinkedIn">
+                <div id="authorhelp" class="form-text">Please include the entire URL</div>
+                </div>
+
+                <div class="col-6">
+                <label for="phone" class="form-label">Update Phone Number</label>
+                <input type="number" class="form-control" id="phone">
+                </div>
+
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
                 
             </div>
           </body>
