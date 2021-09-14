@@ -30,7 +30,7 @@
 
                 <!-- The following table is formatted through Bootstrap.
                 Current variables are: titles, authors(s), year published, publisher, page counts and MSRP-->
-                <table class="table table-hover">
+                <table id="sorttable" class="table table-hover">
                     <thead>
                     <tr>
                         <th scope="col">Title</th>
@@ -156,6 +156,13 @@
                 </div>
             </div>
 
+            <!--The following code is from professor Gregory's "Adding a sort table script lecture"
+            The second line of code was from http://tristen.ca/tablesort/demo/
+            The ID for the table has been changed to "sorttable"-->
+            <script src="js/tablesort.min.js"></script>
+            <script>
+                new Tablesort(document.getElementById('sorttable'));
+            </script>
         </body>
 
     </html>
