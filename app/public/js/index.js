@@ -1,12 +1,8 @@
-/*!
-The following code was included through follow professor Gregory's lecture on Wednesday
-*/
-
 const Offer = {
     data() {
-        return {
-            "person": {},
-            "offers": [
+      return {
+        "person": {},
+        "offers": [
                 {
                     "name": "Richard Hendricks",
                     "countryoforigin":"USA",
@@ -14,49 +10,50 @@ const Offer = {
                     "age":"38",
                     "email":"richardhendricks@piedpiper.com",
                     "image":"img/richard.jpg",
-                }
+                },
+
+                /*!The following user profile was included through follow professor Gregory's lecture on Wednesday */
 
                 {
-                    "name": "Jerry Wang",
-                    "countryoforigin":"Taiwan",
-                    "birthdate":"April 9th",
-                    "age":"18",
-                    "email":"jerry@gmail.com",
-                    "image":"img/richard.jpg",
+                    "id": 2,
+                    "name": "Jordan Doe",
+                    "salary": 80000,
+                    "bonus": 2000,
+                    "company":"IU",
+                    "offerDate": "2021-08-09"
                 }
             ]
         }
     },
 
+    /*!The following calculation, methods and functions was included through follow professor Gregory's lecture on Wednesday
+    logs are included for error checking */
     computed: {
         prettyBirthday() {
             return dayjs(this.person.dob.date)
             .format('D MMM YYYY')
         }
     },
-
     methods: {
         fetchUserData() {
+            console.log("A");
             fetch('https://randomuser.me/api/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                this.person = parsedJson.results[0];
+                console.log("C");
+                this.person = responseJson.results[0];
             })
-            .catch( (err)=> {
+            .catch( (err) => {
                 console.error(err);
-        })
-    }
-},
-
-        created() {
-            this.fetchUserData();
+            })
+            console.log("B");
         }
-
-    }
-
-/*!
-The following code was included through follow professor Gregory's lecture on Wednesday
-*/
-
+    },
+    created() {
+        this.fetchUserData();
+    } //end created
+} // end Offer config
+  
 Vue.createApp(Offer).mount('#offerApp');
+console.log("Z");

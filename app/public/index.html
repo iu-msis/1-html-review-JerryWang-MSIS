@@ -34,55 +34,25 @@
               <a class="navlink" href="tables.html">Tables</a>
             </nav>
 
-            <!-- Slight padding has been applied to the class of "bodymain" to avoid the text and image from being too close to the edge of the screen.
-            The class is customizable through css. -->
-            <div id="offerApp" class="bodymain">
-              <p>{{ person.name.first }} {{ person.name.last }}</p>
+            <!-- This form code was taken from and during professor Gregory's live lecture
+            When the button is clicked, run the fetch user function and prevent avoids the entire page from refreshing; keeps the change just to our user information -->
+            <div class="container">
+              <h3>User Information</h3>
+                <div id="offerApp" class="col col-8">
+                  <form v-on:submit.prevent="fetchUserData">
+                    <button type="submit">Refresh User</button>
+                  </form>
 
-              <br><h3>User Information</h3>
-              <h4>Richard Hendricks</h4>
-              
-            <!-- Learned about target="_blank" through W3 School
-            Link: https://www.w3schools.com/howto/howto_css_thumbnail.asp -->
-              <div id="app" class="row g-2">
-                <p>{{ person.name.first }} {{ person.name.last }}</p>
+                  <p>User Name: {{ person.name.first }} {{ person.name.last }}</p>
+                  <p>User's Birthdate: {{ prettyBirthday }}</p>
+                  <p>User Email: <a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
+                  <p>{{ person }}</p>
 
-                <a target="_blank" href="img/richard.jpg">
-                  <img src="img/richard.jpg" alt="richard's photo">
-                </a>
-
-                <p> Source: <a link="linkcolor" href="https://silicon-valley.fandom.com/wiki/Richard_Hendricks">Silicon Valley Wiki, Fandom</a></p>
-
-
-                <div class="col-4">
-                  <br><h4>About User</h4>
-                  <p>Name: Richard Hendricks</p>
-                  <p>Occupation: Founder and CEO of Pied Piper</p>
-                  <p>Birthdate: December 12th, 1988</p>
-                  <p>Country of Origin: USA</p><br>
-
-                  <!-- The following email and LinkedIn clickable.
-                  Given that Hendricks is a fictional character, the following contact information are fake.
-                  I had customized the hyperlink to italicized and crimson red. This can be changed in the css. -->
-                  <br><h4>Contact Information</h4>
-                  <p> Email: <a href="mailto:richardhendricks@piedpiper.com" class="linkcolor">richardhendricks@piedpiper.com</a></p>
-                  <p> Work Cell: 812-999-999 </p>
-                  <p> LinkedIn: <a href="https://www.linkedin.com/in/richardhenrickspiedpiper" class="linkcolor">View Profile</a> </p>
                 </div>
-
-                <p>{{ person.name.first }} {{ person.name.last }}</p>
-                <p>{{ prettyBirthday }}</p>
-                <p><a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
-                <p>{{ person }}</p>
-
-                  <!-- This form code was taken from professor Gregory's live lecture
-                  When the button is clicked, run the fetch user function
-                  .prevent avoids the entire page from refreshing; keeps the change just to our user information -->
-                <form v-on:submit.prevent="fetchUserData">
-                  <button type="submit">Refresh</button>
-                </form>
-
-              </div>
+            </div>
+              
+              <!-- Learned about target="_blank" through W3 School
+              Link: https://www.w3schools.com/howto/howto_css_thumbnail.asp -->
 
 
 
@@ -114,10 +84,16 @@
                 
             </div>
 
-            <!-- Importing JS, as followed through VueMastery Recorded lectures-->
+            <!-- Importing JS, as followed through VueMastery Recorded lectures
             <script src="js/index.js"></script>
             <script> const mountedApp = app.mount('#app') </script>
+            </body>-->
+
+
+            <!-- Got the following code through JS' official sight and following professor Gregory's live lecture -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+            <script src="js/index.js"></script>
           </body>
-
-
 </html>
