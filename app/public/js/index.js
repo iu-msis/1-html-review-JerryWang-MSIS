@@ -27,7 +27,7 @@ const Offer = {
     },
 
     /*!The following calculation, methods and functions was included through follow professor Gregory's lecture on Wednesday
-    logs are included for error checking */
+    logs are included for error checking*/
     computed: {
         prettyBirthday() {
             return dayjs(this.person.dob.date)
@@ -52,8 +52,8 @@ const Offer = {
     },
     created() {
         this.fetchUserData();
-    } //end created
-} // end Offer config
+    } 
+} 
   
 Vue.createApp(Offer).mount('#offerApp');
 console.log("Z");

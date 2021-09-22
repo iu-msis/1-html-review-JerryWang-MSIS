@@ -43,16 +43,21 @@
                     <button type="submit">Refresh User</button>
                   </form>
 
+                  <!-- the following information were found through creating/printing {{person}} and finding information within the API
+                  Leanred about v-bind through office hour recordings
+                  Learned about "_blank through W3 School link: https://www.w3schools.com/howto/howto_css_thumbnail.as "  -->
                   <p>User Name: {{ person.name.first }} {{ person.name.last }}</p>
+                  <a v-bind:href = "person.picture.large"> <img target= "_blank" v-bind:src="person.picture.large"></a>
                   <p>User's Birthdate: {{ prettyBirthday }}</p>
+                  <p>User's Age: {{ person.dob.age }}</p>
+                  <p>User's Country of Origin: {{ person.location.country }}</p>
                   <p>User Email: <a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
-                  <p>{{ person }}</p>
+
+                  <p>User's Country of Origin: {{ person.location.country }}</p>
+                  <p>User's : {{ person.location.country }}</p>
 
                 </div>
             </div>
-              
-              <!-- Learned about target="_blank" through W3 School
-              Link: https://www.w3schools.com/howto/howto_css_thumbnail.asp -->
 
 
 
