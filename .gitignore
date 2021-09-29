@@ -1,1 +1,4 @@
 .DS_Store
+
+#This will ignore environment files
+env
