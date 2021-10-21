@@ -1,59 +1,72 @@
-const Offer = {
+
+const SomeApp = {
     data() {
       return {
-        "person": {},
-        "offers": [
-                {
-                    "name": "Richard Hendricks",
-                    "countryoforigin":"USA",
-                    "birthdate":"April 10th",
-                    "age":"38",
-                    "email":"richardhendricks@piedpiper.com",
-                    "image":"img/richard.jpg",
-                },
-
-                /*!The following user profile was included through follow professor Gregory's lecture on Wednesday */
-
-                {
-                    "id": 2,
-                    "name": "Jordan Doe",
-                    "salary": 80000,
-                    "bonus": 2000,
-                    "company":"IU",
-                    "offerDate": "2021-08-09"
-                }
-            ]
-        }
+        "books": [],
+        offerbooks: {},
+        offerForm: {}
+      }
     },
 
-    /*!The following calculation, methods and functions was included through follow professor Gregory's lecture on Wednesday
-    logs are included for error checking*/
-    computed: {
-        prettyBirthday() {
-            return dayjs(this.person.dob.date)
-            .format('D MMM YYYY')
-        }
-    },
+    computed: {},
     methods: {
-        fetchUserData() {
-            console.log("A");
-            fetch('https://randomuser.me/api/')
+        prettyData(d) {
+            return dayjs(d)
+            .format('D MMM YYYY')
+        },
+        prettyDollar(n) {
+            const d = new Intl.NumberFormat("en-US").format(n);
+            return "$ " + d;
+        },
+        selectBooks(s) {
+            if (s == this.selectedBooks) {
+                return;
+            }
+            this.selectedBooks = s;
+            this.offers = [];
+            this.fetchBooksData(this.selectedBooks);
+        },
+
+        fetchBooksData() {
+            fetch('/api/books/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                console.log("C");
-                this.person = responseJson.results[0];
+                this.books = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
             })
-            console.log("B");
-        }
-    },
-    created() {
-        this.fetchUserData();
-    } 
-} 
+        },
+
+
+        // The following code is taken from Professor Gregory's lecture. Changes have been made to reflect Books and functions.
+
+        postNewOffer(evt) {     
+          console.log("Posting:", this.offerForm);
+          // alert("Posting!");
   
-Vue.createApp(Offer).mount('#offerApp');
-console.log("Z");
+          fetch('api/books/create.php', {
+            method:'POST',
+            body: JSON.stringify(this.offerForm),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            console.log("Returned from post:", json);
+            // TODO: test a result was returned!
+            this.offers = json;
+            
+          });
+      }
+    },
+
+    created() {
+        this.fetchBooksData();
+    }
+  
+    }
+  
+  Vue.createApp(SomeApp).mount('#offerApp');

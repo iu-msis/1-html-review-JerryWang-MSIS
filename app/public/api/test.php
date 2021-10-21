@@ -1,50 +1,56 @@
 <?php
 
-
 $num = 2;
-$foo = $num. " be";
+
+$foo = $num ." be";
 $bar = "or not " .$num. " be";
 
-echo $foo ." ". $bar. "\n";
+echo $foo . ' ' . $bar . "\n";
 
 echo $num * $num * $num;
 
-#This is a comment
+$arr = [
+    "first" => "Tom",
+    "second" => "Bipin",
+    "best" => "DS"
+];
 
-if (true){
-    echo "TRUE \n";
-} else {
-    echo "FALSE \n";
+$arr2 = [1,1,2,3,5,8];
+
+
+if (true) {
+    echo "\nTRUE\n";
 }
 
-while (true){
+while (true) {
+    //This way it doesn't actually do anything
     break;
 }
 
-$arr = [1,1,2,3,5,8];
+# This is also a comment
 
-$arr2 = [
-    "first" => "Jerry",
-    "second" => "Wang",
-    "best" => "student"
-];
+/* This is a 
+multi-line 
+comment */
 
-function printList($someArr){
-    echo "<ul>\n";
-    foreach($someArr as $key => $val){
-        echo "<li>".$key." is ".$val."</li>\n";
-    }
-    echo "</ul>\n";
+// echo "<ul>";
+// foreach($arr as $key=>$val) {
+//     echo "<li>".$key ." is ".$val."</li>";
+// }
+// echo "</ul>";
+
+function printAndEncode( $val ) {
+    echo json_encode(
+        $val, 
+        JSON_PRETTY_PRINT|JSON_THROW_ON_ERROR
+    );
 }
 
-printList($arr);
-printList($arr2);
+// ====
+// Naming conventions
 
-#Figure out function to encode array as JSON string
+// JS & PHP : camelCase
 
-$arr3 = array("a" => 1, "b" => 2, "c" => 3, "d" => 4, "e" => 5);
-echo json_encode($arr3)."\n";
-
-echo json_encode($arr2,
-JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR
-);
+// PascalCase
+// snake_case
+// kebab-case

@@ -1,3 +1,25 @@
+
+/* From professor gregory's lecture*/
+
+.student {
+    margin: 10px 2px;
+    padding: 4px;
+    border: 1px solid gray;
+    background-color: antiquewhite;
+}
+
+.selected {
+    background-color: burlywood;
+}
+
+.userName {
+    font-weight:bold;
+}
+
+.studentName{
+    color:#999;
+}
+
 nav {
     background-color: darkgray;
     padding-top: 10px;
@@ -92,3 +114,5 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
 }
+
+
